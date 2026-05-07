@@ -1,9 +1,9 @@
 export const profile = {
   name: "Huzaifa Sajid",
   title: "AI/ML Developer · Frontend Engineer",
-  email: "huzaifa@example.com",
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/",
+  email: "huzaifasajid965@gmail.com",
+  github: "https://github.com/ByteCraft-9",
+  linkedin: "https://www.linkedin.com/in/huzaifa-sajid-b93a59227",
   bio: `I build intelligent, beautifully crafted software at the intersection of AI and frontend engineering. I love systems that feel alive — fluid interactions, thoughtful motion, and details that make products memorable.`,
 };
 
@@ -16,7 +16,7 @@ export interface Project {
   highlights: string[];
   demo?: string;
   github?: string;
-  cover: string; // gradient class
+  cover: string; // image path
 }
 
 export const projects: Project[] = [
@@ -28,9 +28,9 @@ export const projects: Project[] = [
       "A SaaS platform with AI-powered document intelligence, chat, and team workspaces. Built for scale with edge-rendered React and streaming LLM responses.",
     tech: ["Next.js", "TypeScript", "OpenAI", "tRPC", "Postgres"],
     highlights: ["Streaming completions", "Org-level RBAC", "Vector search"],
-    demo: "https://example.com",
-    github: "https://github.com/",
-    cover: "from-indigo-500 via-purple-500 to-pink-500",
+    demo: "https://github.com/ByteCraft-9",
+    github: "https://github.com/ByteCraft-9",
+    cover: "/icons/saasAI.png",
   },
   {
     id: "vision-app",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "Browser-based realtime vision pipeline using WebGPU + ONNX. Detects objects, segments scenes and overlays AR markers at 60 FPS.",
     tech: ["WebGPU", "ONNX", "React", "WASM"],
     highlights: ["60 FPS pipeline", "On-device inference", "AR overlays"],
-    cover: "from-cyan-400 via-sky-500 to-blue-600",
+    cover: "/icons/vision.png",
   },
   {
     id: "ml-dashboard",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "An ML ops console for tracking experiments, comparing runs, and deploying models with one click. Beautiful charts, fast filtering.",
     tech: ["React", "D3", "FastAPI", "Docker"],
     highlights: ["Live metrics", "Run diffing", "1-click deploy"],
-    cover: "from-emerald-400 via-teal-500 to-cyan-600",
+    cover: "/icons/ml-dashboard.png",
   },
   {
     id: "portfolio-os",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
       "An interactive macOS-inspired portfolio. A full window manager, dock, finder and terminal — all rendered in the browser.",
     tech: ["React", "TypeScript", "Framer Motion", "Zustand"],
     highlights: ["Window manager", "Animated dock", "Fake terminal"],
-    cover: "from-amber-400 via-orange-500 to-rose-500",
+    cover: "/icons/portfolio.jpg",
   },
   {
     id: "chat-system",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
       "End-to-end encrypted chat with presence, typing indicators and offline sync. WebSockets + CRDTs for conflict-free state.",
     tech: ["WebSockets", "CRDT", "React", "Rust"],
     highlights: ["E2EE", "Offline-first", "Presence"],
-    cover: "from-fuchsia-500 via-rose-500 to-orange-400",
+    cover: "/icons/chat.png",
   },
 ];
 

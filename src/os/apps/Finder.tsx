@@ -103,7 +103,9 @@ function FinderContent({ view, openProject, setOpenProject }: { view: View; open
     const p = projects.find((x) => x.id === openProject)!;
     return (
       <div className="max-w-3xl mx-auto text-foreground">
-        <div className={`h-44 rounded-xl bg-gradient-to-br ${p.cover} mb-5 shadow-xl`} />
+        <div className="h-44 rounded-xl overflow-hidden mb-5 shadow-xl bg-black/5">
+          <img src={p.cover} alt="" className="w-full h-full object-cover" />
+        </div>
         <h1 className="text-3xl font-semibold">{p.name}</h1>
         <p className="text-foreground/60 mt-1">{p.tagline}</p>
         <p className="mt-4 leading-relaxed text-foreground/80">{p.description}</p>
@@ -132,7 +134,9 @@ function FinderContent({ view, openProject, setOpenProject }: { view: View; open
             onClick={() => setOpenProject(p.id)}
             className="text-left group"
           >
-            <div className={`h-28 rounded-lg bg-gradient-to-br ${p.cover} shadow-lg transition-transform group-hover:scale-[1.03]`} />
+            <div className="h-28 rounded-lg overflow-hidden shadow-lg transition-transform group-hover:scale-[1.03] bg-black/5">
+              <img src={p.cover} alt="" className="w-full h-full object-cover" />
+            </div>
             <div className="mt-2 text-sm font-medium text-foreground">{p.name}</div>
             <div className="text-xs text-foreground/50">{p.tagline}</div>
           </button>

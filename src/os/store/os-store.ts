@@ -56,6 +56,7 @@ export const useOS = create<OSState>((set, get) => ({
     const existing = get().windows.find((w) => w.appId === appId);
     if (existing) {
       get().focusWindow(existing.id);
+      if (opts?.payload) get().updateWindow(existing.id, { payload: opts.payload });
       if (existing.minimized) get().updateWindow(existing.id, { minimized: false });
       return;
     }

@@ -38,7 +38,7 @@ function Index() {
         render={(w) => {
           switch (w.appId) {
             case "finder":
-              return <Finder />;
+              return <Finder initialView={(w.payload?.view as any) || "projects"} />;
             case "terminal":
               return <Terminal />;
             case "pictures":

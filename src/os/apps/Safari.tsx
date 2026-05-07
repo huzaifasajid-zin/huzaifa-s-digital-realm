@@ -2,10 +2,10 @@ import { Lock, Plus } from "lucide-react";
 import { profile } from "../data/portfolio";
 
 const bookmarks = [
-  { name: "GitHub", url: profile.github, color: "from-zinc-700 to-zinc-900" },
-  { name: "LinkedIn", url: profile.linkedin, color: "from-sky-500 to-blue-700" },
-  { name: "Email", url: `mailto:${profile.email}`, color: "from-rose-500 to-pink-600" },
-  { name: "Resume", url: "/resume.pdf", color: "from-emerald-500 to-teal-600" },
+  { name: "GitHub", url: profile.github, icon: "/icons/github.png" },
+  { name: "LinkedIn", url: profile.linkedin, icon: "/icons/linkedin.png" },
+  { name: "Email", url: `mailto:${profile.email}`, icon: "/icons/gmail.png" },
+  { name: "Resume", url: "/resume.pdf", icon: "/icons/pdf.png" },
 ];
 
 export function Safari() {
@@ -30,10 +30,12 @@ export function Safari() {
               href={b.url}
               target="_blank"
               rel="noreferrer"
-              className="group"
+              className="group flex flex-col items-center"
             >
-              <div className={`h-24 rounded-xl bg-gradient-to-br ${b.color} shadow-md transition-transform group-hover:scale-[1.03]`} />
-              <div className="mt-2 text-sm text-center font-medium">{b.name}</div>
+              <div className="w-full aspect-square max-w-[120px] rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm flex items-center justify-center transition-all group-hover:scale-[1.03] group-hover:shadow-md group-hover:bg-white overflow-hidden p-4">
+                <img src={b.icon} alt="" className="w-full h-full object-contain" />
+              </div>
+              <div className="mt-3 text-sm text-center font-medium text-zinc-600 group-hover:text-zinc-900">{b.name}</div>
             </a>
           ))}
         </div>

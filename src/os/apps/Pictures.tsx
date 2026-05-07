@@ -11,9 +11,11 @@ export function Pictures() {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`mb-3 block w-full rounded-lg bg-gradient-to-br ${p.cover} shadow-lg`}
+            className="mb-3 block w-full rounded-lg overflow-hidden shadow-lg bg-black/5"
             style={{ height: 120 + ((i * 37) % 120) }}
-          />
+          >
+            <img src={p.cover} alt="" className="w-full h-full object-cover" />
+          </button>
         ))}
       </div>
       <AnimatePresence>
@@ -28,8 +30,10 @@ export function Pictures() {
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
-              className={`w-full h-full rounded-xl bg-gradient-to-br ${projects.concat(projects)[active].cover}`}
-            />
+              className="w-full h-full rounded-xl overflow-hidden shadow-2xl"
+            >
+              <img src={projects.concat(projects)[active].cover} alt="" className="w-full h-full object-cover" />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
