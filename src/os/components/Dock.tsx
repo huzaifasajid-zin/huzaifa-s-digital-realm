@@ -1,17 +1,18 @@
 import { motion, useMotionValue, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
-import { Folder, TerminalSquare, Image, Compass, Trash2, User, type LucideIcon } from "lucide-react";
 import { useOS, type AppId } from "../store/os-store";
+import { appIcons } from "../data/icons";
 import clsx from "clsx";
 
-interface DockItem { id: AppId; label: string; Icon: LucideIcon; gradient: string; }
+interface DockItem { id: AppId; label: string; icon: string; }
 const items: DockItem[] = [
-  { id: "finder", label: "Finder", Icon: Folder, gradient: "from-sky-400 to-blue-600" },
-  { id: "about", label: "About", Icon: User, gradient: "from-violet-400 to-fuchsia-600" },
-  { id: "pictures", label: "Pictures", Icon: Image, gradient: "from-pink-400 to-rose-600" },
-  { id: "terminal", label: "Terminal", Icon: TerminalSquare, gradient: "from-zinc-700 to-zinc-900" },
-  { id: "safari", label: "Safari", Icon: Compass, gradient: "from-cyan-400 to-blue-500" },
-  { id: "trash", label: "Trash", Icon: Trash2, gradient: "from-zinc-300 to-zinc-500" },
+  { id: "finder", label: "Finder", icon: appIcons.finder },
+  { id: "about", label: "About", icon: appIcons.about },
+  { id: "pictures", label: "Pictures", icon: appIcons.pictures },
+  { id: "terminal", label: "Terminal", icon: appIcons.terminal },
+  { id: "safari", label: "Safari", icon: appIcons.safari },
+  { id: "playground", label: "Playground", icon: appIcons.playground },
+  { id: "trash", label: "Trash", icon: appIcons.trash },
 ];
 
 function DockIcon({ item, mouseX }: { item: DockItem; mouseX: MotionValue<number> }) {
@@ -23,7 +24,6 @@ function DockIcon({ item, mouseX }: { item: DockItem; mouseX: MotionValue<number
     return val - rect.x - rect.width / 2;
   });
   const size = useTransform(distance, [-120, 0, 120], [52, 78, 52]);
-  const Icon = item.Icon;
   return (
     <div className="flex flex-col items-center">
       <motion.button
@@ -32,18 +32,17 @@ function DockIcon({ item, mouseX }: { item: DockItem; mouseX: MotionValue<number
         onClick={() => openApp(item.id)}
         whileTap={{ scale: 0.85 }}
         className={clsx(
-          "group relative rounded-2xl shadow-lg shadow-black/40 bg-gradient-to-br flex items-center justify-center text-white",
-          item.gradient,
+          "group relative flex items-center justify-center",
           bouncing === item.id && "animate-dock-bounce"
         )}
         title={item.label}
       >
-        <Icon className="w-1/2 h-1/2 drop-shadow" />
-        <span className="absolute -top-9 px-2 py-1 rounded-md text-xs glass-strong opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <img src={item.icon} alt={item.label} draggable={false} className="w-full h-full object-contain drop-shadow-lg pointer-events-none" />
+        <span className="absolute -top-9 px-2 py-1 rounded-md text-xs glass-strong opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-foreground">
           {item.label}
         </span>
       </motion.button>
-      <div className={clsx("h-1 w-1 mt-1 rounded-full", open ? "bg-white/80" : "bg-transparent")} />
+      <div className={clsx("h-1 w-1 mt-1 rounded-full", open ? "bg-foreground/70" : "bg-transparent")} />
     </div>
   );
 }
