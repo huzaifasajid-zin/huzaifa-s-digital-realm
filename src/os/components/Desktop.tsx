@@ -37,13 +37,13 @@ function DesktopTitle() {
         className="text-center no-select"
       >
         <motion.h1
-          className="text-6xl md:text-8xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-white/40 drop-shadow-[0_8px_30px_rgba(120,80,255,0.45)]"
+          className="text-6xl md:text-8xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-indigo-600 via-fuchsia-500 to-rose-500 drop-shadow-[0_8px_30px_rgba(120,80,255,0.25)]"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           Huzaifa Sajid
         </motion.h1>
-        <div className="mt-3 text-white/60 tracking-[0.3em] text-xs md:text-sm uppercase">
+        <div className="mt-3 text-foreground/60 tracking-[0.3em] text-xs md:text-sm uppercase">
           Portfolio · macOS Edition
         </div>
       </motion.div>
