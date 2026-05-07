@@ -1,0 +1,742 @@
+Product Requirements Document (PRD)
+Project: macOS Portfolio Experience
+Owner: Huzaifa Sajid
+Tech Stack: Next.js + TypeScript + Tailwind CSS + Framer Motion
+1. Project Overview
+
+Build a highly interactive portfolio website that simulates a real macOS desktop experience inside the browser.
+
+The portfolio should feel like:
+
+A lightweight macOS clone
+Interactive desktop operating system
+Personal portfolio integrated into the OS
+Smooth animations and realistic UI behavior
+Modern, cinematic, premium experience
+
+The website is NOT a normal portfolio.
+
+The entire portfolio itself IS the operating system.
+
+Users should feel:
+
+“I am using Huzaifa’s computer.”
+
+2. Core Goals
+Primary Goals
+Create unforgettable portfolio experience
+Showcase frontend engineering skills
+Demonstrate advanced UI/UX engineering
+Demonstrate system design thinking
+Make portfolio highly interactive
+Secondary Goals
+Increase recruiter engagement time
+Stand out among traditional portfolios
+Make projects feel immersive
+Showcase animation and architecture skills
+3. Technical Constraints
+Requirements
+No Authentication
+No Database
+Static portfolio data
+Fully frontend application
+Responsive for desktop-first
+Mobile support optional (reduced mode)
+4. Technology Stack
+Core Framework
+Next.js App Router
+TypeScript
+Styling
+Tailwind CSS
+Animation
+Framer Motion
+State Management
+
+Choose one:
+
+Zustand (recommended)
+OR
+Context API
+Icons
+Lucide React
+macOS style custom icons
+Drag/Resize
+react-rnd
+OR
+interact.js
+Sound Effects (Optional)
+use-sound
+5. High Level User Experience
+
+When user opens website:
+
+macOS boot-like animation
+Desktop appears
+Dock animates in
+Top menu bar visible
+Floating desktop icons visible
+Cursor interactions feel realistic
+Windows open like macOS
+Portfolio content lives inside folders/apps
+6. Application Structure
+MAIN SECTIONS
+SECTION 1 — Boot Screen
+Goal
+
+Simulate macOS startup.
+
+Features
+Black screen initially
+Apple-like loading animation
+Smooth transition into desktop
+Optional startup sound
+Animation
+Fade in logo
+Progress bar
+Blur reveal into desktop
+Components
+BootScreen.tsx
+StartupAnimation.tsx
+SECTION 2 — Desktop Environment
+Goal
+
+Main macOS desktop UI.
+
+Features
+Wallpaper background
+Floating desktop icons
+Dynamic mouse interactions
+Context menu on right click
+Desktop selection drag
+Desktop Icons
+
+Examples:
+
+Work
+Projects
+About
+Resume
+Trash
+Desktop Behavior
+Hover
+
+Icons slightly pop upward like real macOS.
+
+Click
+
+Select icon.
+
+Double Click
+
+Open folder/window.
+
+Drag
+
+Move desktop icons freely.
+
+Animations
+Spring animations
+Hover scaling
+Glow effects
+Cursor reactive text
+SECTION 3 — Animated Desktop Title
+Requirement
+
+Center desktop contains:
+
+“Huzaifa Sajid Portfolio”
+
+Effects
+Cursor parallax movement
+Glow effect
+Smooth floating animation
+Text distortion on hover
+Optional Effects
+Glass morphism
+Mouse trail
+Technologies
+Framer Motion
+CSS transform perspective
+SECTION 4 — Top Menu Bar
+Goal
+
+Replicate macOS top bar.
+
+Left Side
+Apple logo
+“Huzaifa’s Portfolio”
+File
+Edit
+View
+Help
+Right Side
+WiFi icon
+Battery icon
+Current date/time
+Theme toggle
+System status icons
+Features
+Live clock
+Frosted glass effect
+Sticky top bar
+SECTION 5 — Dock System
+Goal
+
+Realistic macOS dock.
+
+Apps in Dock
+Finder/File Explorer
+Pictures
+Terminal
+Safari
+Trash
+Dock Features
+Hover
+
+Magnification effect.
+
+Click
+
+Launch application.
+
+Bounce Animation
+
+App icon bounces when opening.
+
+Active Indicator
+
+Small dot under open apps.
+
+Technologies
+Framer Motion
+Mouse position tracking
+SECTION 6 — Window Management System
+Goal
+
+Real macOS window behavior.
+
+Features
+Open windows
+Close/minimize/maximize
+Drag windows
+Resize windows
+Focus management
+Z-index layering
+Window Controls
+
+macOS style:
+
+Red = close
+Yellow = minimize
+Green = fullscreen
+Window Behavior
+Bring focused window to front
+Smooth transitions
+Snap animations
+Required Components
+WindowManager
+AppWindow
+WindowHeader
+WindowControls
+SECTION 7 — Finder / File Explorer
+MOST IMPORTANT SECTION
+
+This acts as portfolio navigation.
+
+Finder Layout
+Left Sidebar
+Favorites
+About
+Experience
+Skills
+Contact
+Folders
+Projects
+Work
+Certifications
+System
+Desktop
+Downloads
+Local Disk
+Main Content Area
+
+Displays folder contents.
+
+Top Toolbar
+Back button
+Forward button
+Search
+View toggle
+Finder Functionalities
+Required
+Open folders
+Nested folders
+Breadcrumb navigation
+Drag files
+Delete files
+Rename items
+Copy/Paste simulation
+Context menus
+Simulated File Types
+Folder
+Image
+PDF
+Markdown
+Project files
+SECTION 8 — Projects System
+Structure
+
+Projects are folders.
+
+Example:
+Projects/
+├── AI SaaS/
+├── Vision App/
+├── ML Dashboard/
+├── Portfolio/
+└── Chat System/
+
+Inside Each Project Folder
+Files
+README.md
+Screenshots
+tech-stack.json
+demo-link.url
+github-link.url
+Project View UI
+
+When project opens:
+
+Detailed project showcase
+Images carousel
+Tech stack
+Architecture explanation
+Challenges solved
+Live demo link
+SECTION 9 — About Section
+Displayed Inside Finder
+
+Contains:
+
+Introduction
+Education
+Skills
+Technologies
+Career goals
+UI Style
+Markdown styled page
+macOS native document feel
+SECTION 10 — Experience Section
+Timeline Layout
+
+Show:
+
+Company/Client
+Role
+Duration
+Responsibilities
+Technologies used
+Effects
+Scroll animations
+Expandable cards
+SECTION 11 — Terminal Application
+Goal
+
+Interactive fake terminal.
+
+Commands
+Portfolio Commands
+help
+about
+skills
+projects
+resume
+contact
+clear
+whoami
+Example
+> whoami
+
+Huzaifa Sajid
+AI/ML Developer
+Terminal Features
+Required
+Typing effect
+Command history
+Arrow navigation
+Fake filesystem
+Optional
+ASCII logo
+Hacker-style effects
+SECTION 12 — Pictures App
+Purpose
+
+Portfolio gallery.
+
+Content
+Project screenshots
+UI designs
+Certificates
+Visual work
+Features
+Masonry grid
+Fullscreen preview
+Smooth transitions
+SECTION 13 — Safari App
+Goal
+
+Browser simulator.
+
+Behavior
+
+When clicking bookmarks:
+
+Open real links in new tab
+Predefined Links
+
+Examples:
+
+GitHub
+LinkedIn
+Resume
+Email
+Portfolio demos
+Features
+Fake browser chrome
+Tabs UI
+Address bar
+SECTION 14 — Trash System
+Features
+Deleted items go to trash
+Restore items
+Empty trash animation
+Optional
+
+Persistent state in localStorage.
+
+SECTION 15 — File System Architecture
+Use Static JSON Data
+
+Example:
+
+const fileSystem = {
+  desktop: [],
+  projects: [],
+  about: {},
+}
+Suggested Structure
+/data
+  filesystem.ts
+  projects.ts
+  experience.ts
+SECTION 16 — State Management
+Global State
+
+Track:
+
+Open windows
+Active app
+Dock state
+File positions
+Selected files
+Theme
+Window z-index
+Recommended
+
+Zustand store.
+
+SECTION 17 — Animations & Motion
+Important
+
+Animations are core feature.
+
+Required Animations
+Dock magnification
+Window open/close
+Hover scaling
+Glass blur transitions
+Cursor parallax
+Smooth dragging
+Elastic movement
+Technologies
+Framer Motion
+CSS GPU transforms
+SECTION 18 — UI Design System
+Design Language
+macOS Ventura/Sonoma inspired
+Frosted glass
+Soft shadows
+Rounded corners
+Blur backgrounds
+Colors
+Light Mode
+Gray
+White
+Blue accents
+Dark Mode
+Deep gray
+Black glass
+Neon highlights
+SECTION 19 — Sound Design (Optional)
+Sounds
+Window open
+Trash empty
+Dock click
+Startup sound
+
+Keep subtle.
+
+SECTION 20 — Performance Requirements
+Important
+
+Must remain smooth.
+
+Targets
+60 FPS animations
+Lazy load heavy apps
+Minimize rerenders
+Use memoization
+Optimization
+Dynamic imports
+React memo
+Virtual rendering if needed
+SECTION 21 — Responsive Strategy
+Desktop
+
+Full macOS experience.
+
+Tablet
+
+Reduced window features.
+
+Mobile
+
+Fallback mode:
+
+Simplified portfolio UI
+OR
+“Desktop only experience” screen
+SECTION 22 — Accessibility
+Requirements
+Keyboard navigation
+Focus states
+Screen reader labels
+Reduced motion support
+SECTION 23 — SEO
+
+Even though app-like:
+
+Add metadata
+OpenGraph images
+Structured data
+Dynamic title tags
+SECTION 24 — Folder Structure
+/app
+/components
+  /desktop
+  /dock
+  /finder
+  /windows
+  /terminal
+  /safari
+  /pictures
+/store
+/data
+/hooks
+/utils
+/styles
+/public
+SECTION 25 — Development Phases
+PHASE 1 — Foundation
+Setup Next.js
+Tailwind setup
+Desktop layout
+Wallpaper
+Top bar
+Dock
+PHASE 2 — Window System
+Window manager
+Dragging
+Resizing
+Focus management
+PHASE 3 — Finder
+File explorer UI
+Folder navigation
+Static file system
+PHASE 4 — Desktop Features
+Desktop icons
+Dragging
+Context menu
+PHASE 5 — Portfolio Content
+Projects
+About
+Experience
+PHASE 6 — Applications
+Terminal
+Safari
+Pictures
+PHASE 7 — Advanced Features
+Trash system
+Copy/paste
+Sounds
+Boot animation
+PHASE 8 — Polish
+Animations
+Optimization
+Responsiveness
+SEO
+SECTION 26 — MVP Features
+MUST HAVE
+Desktop
+Dock
+Finder
+Window system
+Portfolio folders
+Terminal
+Smooth animations
+NICE TO HAVE
+Sounds
+Boot animation
+Fake Safari
+Trash system
+SECTION 27 — Future Enhancements
+Ideas
+AI assistant app
+Live terminal backend
+Multiplayer desktop
+Theme customization
+Dynamic wallpapers
+Mini games
+Real markdown editor
+SECTION 28 — Success Criteria
+
+Project is successful if:
+
+Users spend >3 minutes interacting
+Recruiters remember portfolio
+Animations feel native
+Experience feels premium
+Performance remains smooth
+FINAL DEVELOPMENT RECOMMENDATION
+Build Order
+FIRST
+Desktop
+Dock
+Window system
+SECOND
+Finder
+File system
+THIRD
+Portfolio content
+Terminal
+LAST
+Advanced animations
+Sounds
+Polish
+Suggested Inspiration
+
+Look at:
+
+macOS Sonoma UI
+Linear.app animations
+Raycast transitions
+Vercel design system
+Figma desktop interactions
+Recommended Libraries
+Core
+Next.js
+Tailwind
+Framer Motion
+Zustand
+Helpers
+react-rnd
+clsx
+lucide-react
+use-sound
+
+
+Here is the file structure of your macOS-style portfolio application project. I have omitted the contents of standard generated/hidden folders like .git, .next, and node_modules for clarity:
+
+    1 portfolio-app/
+    2 ├── public/                       # Static assets (images, icons, svgs)
+    3 │   ├── file.svg
+    4 │   ├── globe.svg
+    5 │   ├── next.svg
+    6 │   ├── vercel.svg
+    7 │   ├── wallpaper.jpeg            # Desktop background
+    8 │   ├── window.svg
+    9 │   └── icons/                    # App and file type icons
+   10 │       ├── file.png
+   11 │       ├── finder.png
+   12 │       ├── folder.png
+   13 │       ├── markdown.png
+   14 │       ├── pdf.png
+   15 │       ├── pictures.png
+   16 │       ├── safari.png
+   17 │       ├── terminal.png
+   18 │       └── trash.png
+   19 │
+   20 ├── src/                          # Main source code
+   21 │   ├── app/                      # Next.js App Router (Pages & Layout)
+   22 │   │   ├── favicon.ico
+   23 │   │   ├── globals.css           # Global styles and Tailwind directives
+   24 │   │   ├── layout.tsx
+   25 │   │   └── page.tsx
+   26 │   │
+   27 │   ├── components/               # React UI Components
+   28 │   │   ├── boot/                 # Startup loading screen
+   29 │   │   │   ├── BootScreen.tsx
+   30 │   │   │   └── StartupAnimation.tsx
+   31 │   │   ├── desktop/              # Main desktop environment
+   32 │   │   │   ├── ContextMenu.tsx
+   33 │   │   │   ├── Desktop.tsx
+   34 │   │   │   ├── DesktopIcon.tsx
+   35 │   │   │   └── DesktopTitle.tsx
+   36 │   │   ├── dock/                 # Bottom macOS dock
+   37 │   │   │   ├── Dock.tsx
+   38 │   │   │   └── DockIcon.tsx
+   39 │   │   ├── finder/               # Finder application (Portfolio content)
+   40 │   │   │   ├── FileItem.tsx      # Individual grid icons
+   41 │   │   │   ├── Finder.tsx        # Main window shell
+   42 │   │   │   ├── FinderContent.tsx # Grid and view renderer
+   43 │   │   │   ├── FinderSidebar.tsx # Left navigation rail
+   44 │   │   │   ├── FinderToolbar.tsx # Top navigation/search bar
+   45 │   │   │   └── views/            # Specific page views
+   46 │   │   │       ├── AboutView.tsx
+   47 │   │   │       ├── ExperienceView.tsx
+   48 │   │   │       └── ProjectView.tsx
+   49 │   │   ├── menubar/              # Top macOS menu bar
+   50 │   │   │   └── MenuBar.tsx
+   51 │   │   ├── pictures/             # Pictures application
+   52 │   │   │   └── Pictures.tsx
+   53 │   │   ├── safari/               # Safari browser application
+   54 │   │   │   └── Safari.tsx
+   55 │   │   ├── terminal/             # Terminal application
+   56 │   │   │   └── Terminal.tsx
+   57 │   │   ├── trash/                # Trash application
+   58 │   │   │   └── Trash.tsx
+   59 │   │   └── windows/              # Window management system
+   60 │   │       ├── AppWindow.tsx     # Resizable/draggable window container
+   61 │   │       ├── WindowControls.tsx# Traffic light buttons (Close, Min, Max)
+   62 │   │       ├── WindowHeader.tsx  # Window title bar
+   63 │   │       └── WindowManager.tsx # Orchestrates active windows
+   64 │   │
+   65 │   ├── data/                     # Mock data & content for the portfolio
+   66 │   │   ├── about.ts              # Bio, skills, education data
+   67 │   │   ├── experience.ts         # Work history data
+   68 │   │   ├── filesystem.ts         # Virtual folder/file tree structure
+   69 │   │   └── projects.ts           # Project details and tech stacks
+   70 │   │
+   71 │   ├── hooks/                    # Custom React hooks
+   72 │   │   └── useSystemSounds.ts    # Audio feedback for interactions
+   73 │   │
+   74 │   └── store/                    # Zustand global state management
+   75 │       └── useDesktopStore.ts    # Manages window states, active apps, z-index
+   76 │
+   77 ├── .gitignore
+   78 ├── eslint.config.mjs             # ESLint configuration
+   79 ├── next.config.ts                # Next.js configuration
+   80 ├── package.json                  # Dependencies and scripts
+   81 ├── package-lock.json
+   82 ├── postcss.config.mjs            # PostCSS config (Tailwind)
+   83 ├── tsconfig.json                 # TypeScript configuration
