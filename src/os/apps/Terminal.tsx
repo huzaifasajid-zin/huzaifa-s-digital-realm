@@ -18,7 +18,7 @@ const commands: Record<string, () => string> = {
   about: () => profile.bio,
   skills: () => Object.entries(skills).map(([k, v]) => `${k}: ${v.join(", ")}`).join("\n"),
   projects: () => projects.map((p) => `• ${p.name} — ${p.tagline}`).join("\n"),
-  resume: () => `Resume: ${profile.github} (mock link)`,
+  resume: () => `Opening /resume.pdf — also available from the desktop.`,
   contact: () => `Email: ${profile.email}\nGitHub: ${profile.github}\nLinkedIn: ${profile.linkedin}`,
 };
 
