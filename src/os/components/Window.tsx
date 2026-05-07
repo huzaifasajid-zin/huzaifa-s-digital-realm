@@ -41,9 +41,9 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96 }}
         transition={{ type: "spring", stiffness: 300, damping: 26 }}
-        className="w-full h-full rounded-xl overflow-hidden glass-strong shadow-2xl shadow-black/60 flex flex-col"
+        className="w-full h-full rounded-xl overflow-hidden glass-strong shadow-2xl shadow-black/20 flex flex-col"
       >
-        <div className="window-drag-handle h-9 px-3 flex items-center gap-2 border-b border-white/10 bg-black/20">
+        <div className="window-drag-handle h-9 px-3 flex items-center gap-2 border-b border-black/10 bg-white/40">
           <button
             onClick={() => closeWindow(win.id)}
             className="w-3 h-3 rounded-full bg-[#ff5f57] hover:brightness-110"
@@ -59,10 +59,10 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
             className="w-3 h-3 rounded-full bg-[#28c840] hover:brightness-110"
             aria-label="Maximize"
           />
-          <div className="flex-1 text-center text-xs text-white/70 font-medium no-select">{win.title}</div>
+          <div className="flex-1 text-center text-xs text-foreground/70 font-medium no-select">{win.title}</div>
           <div className="w-12" />
         </div>
-        <div className="flex-1 min-h-0 text-white/90">{children}</div>
+        <div className="flex-1 min-h-0 text-foreground">{children}</div>
       </motion.div>
     </Rnd>
   );
