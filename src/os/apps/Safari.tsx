@@ -5,7 +5,7 @@ const bookmarks = [
   { name: "GitHub", url: profile.github, color: "from-zinc-700 to-zinc-900" },
   { name: "LinkedIn", url: profile.linkedin, color: "from-sky-500 to-blue-700" },
   { name: "Email", url: `mailto:${profile.email}`, color: "from-rose-500 to-pink-600" },
-  { name: "Resume", url: profile.github, color: "from-emerald-500 to-teal-600" },
+  { name: "Resume", url: "/resume.pdf", color: "from-emerald-500 to-teal-600" },
 ];
 
 export function Safari() {

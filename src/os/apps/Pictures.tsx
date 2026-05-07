@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Pictures() {
   const [active, setActive] = useState<number | null>(null);
   return (
-    <div className="h-full overflow-y-auto thin-scroll p-4">
+    <div className="h-full overflow-y-auto thin-scroll p-4 bg-white/40">
       <div className="columns-2 md:columns-3 gap-3 [column-fill:_balance]">
         {projects.concat(projects).map((p, i) => (
           <button

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type AppId = "finder" | "terminal" | "pictures" | "safari" | "about" | "trash";
+export type AppId = "finder" | "terminal" | "pictures" | "safari" | "about" | "trash" | "playground";
 
 export interface WindowState {
   id: string;
@@ -43,6 +43,8 @@ const defaultsForApp = (appId: AppId): Partial<WindowState> => {
       return { title: "About Me", width: 680, height: 520 };
     case "trash":
       return { title: "Trash", width: 700, height: 480 };
+    case "playground":
+      return { title: "Playground", width: 820, height: 560 };
   }
 };
 
